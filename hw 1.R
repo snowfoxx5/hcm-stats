@@ -37,8 +37,8 @@ dataset[complete.cases(dataset),]
 View(dataset)
 names(dataset)
 #subsetting row of bonus_potential = 1 with all columns as bonusset
-bonusset <- dataset[which(dataset$bonus_potential == 1),] 
-View(bonusset) # check if data is 
+bonusset <- dataset[which(dataset$bonus_potential == 1),]
+View(bonusset) # check if data is
 #subsetting row of bonus_potential = 0 with all columns as nobonusset
 nobonusset <- dataset[which(dataset$bonus_potential == 0),]
 View(nobonusset) # check if data is correct
@@ -48,7 +48,7 @@ pastecs_stats_1 <- data.frame(
   round(
     pastecs::stat.desc(bonusset),2
   )
-) 
+)
 View(pastecs_stats_1)
 pastecs_stats <- data.frame(
   round(
@@ -66,7 +66,7 @@ three_variables <- dataset |>
   summarize ((standd_rate = sd(rate_hrly)),(standd_avg = sd(avg_wkly_hrs)), (standd_age = sd(age)))
 View(three_variables)
 
-round(sd(dataset$rate_hrly),2) #68.09 
+round(sd(dataset$rate_hrly),2) #68.09
 round(sd(bonusset$rate_hrly),2) #62.16
 round(sd(nobonusset$rate_hrly),2) #56.68
 
@@ -90,7 +90,7 @@ skewness(nobonusset$age) #0.04614685
 library(moments)
 kurtosis(bonusset$age) #2.048936
 kurtosis(nobonusset$age) #1.926019
-#nobonusset has a more normal distribution for age 
+#nobonusset has a more normal distribution for age
 
 
 ######################4############################
@@ -111,8 +111,8 @@ rm(list=setdiff(ls(), c("dataset"))) # remove all but original data set
 View(dataset)
 names(dataset)
 #subsetting row of wfh = 1 with all columns as wfhset
-wfhset <- dataset[which(dataset$wfh == 1),] 
-View(wfhset) # check if data is 
+wfhset <- dataset[which(dataset$wfh == 1),]
+View(wfhset) # check if data is
 #subsetting row of wfh = 0 with all columns as nowfhset
 nowfhset <- dataset[which(dataset$wfh == 0),]
 View(nowfhset) # check if data is correct
@@ -157,7 +157,7 @@ cor.test(dataset$absent_days_yr, dataset$avg_wkly_hrs, method = c("pearson"))
 #alternative hypothesis: true correlation is not equal to 0
 #95 percent confidence interval:
 # -0.5328932 -0.4671645
-#sample estimates: cor 
+#sample estimates: cor
 #-0.5007504
 
 cor.test(dataset$absent_days_yr, dataset$avg_wkly_hrs, method = c("spearman"), exact=FALSE)
@@ -167,7 +167,7 @@ cor.test(dataset$absent_days_yr, dataset$avg_wkly_hrs, method = c("spearman"), e
 #S = 1956548393, p-value < 2.2e-16
 #alternative hypothesis: true rho is not equal to 0
 #sample estimates:
-# rho 
+# rho
 #-0.469615
 
 cor.test(dataset$absent_days_yr, dataset$avg_wkly_hrs, method = c("kendall"))
@@ -178,7 +178,7 @@ cor.test(dataset$absent_days_yr, dataset$avg_wkly_hrs, method = c("kendall"))
 #z = -21.635, p-value < 2.2e-16
 #alternative hypothesis: true tau is not equal to 0
 #sample estimates:
-#      tau 
+#      tau
 #-0.384046
 
 install.packages("generalCorr")
@@ -189,6 +189,4 @@ corr_matrix <- as.matrix(
 vinod_1 <- generalCorr::gmcmtx0(corr_matrix)
 
 #there is a correlation between both with a p values of <2.2e-16, however, it is not as imagined as it is a negative cor that suggests otherwise if the avg weekly hours increase the absent days is to decrease.
-## there is a weak negative linear relationship 
-
-dfdf dfgdfd
+## there is a weak negative linear relationship
