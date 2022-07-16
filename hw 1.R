@@ -191,4 +191,4 @@ vinod_1 <- generalCorr::gmcmtx0(corr_matrix)
 #there is a correlation between both with a p values of <2.2e-16, however, it is not as imagined as it is a negative cor that suggests otherwise if the avg weekly hours increase the absent days is to decrease.
 ## there is a weak negative linear relationship 
 
-dfdf
+dfdf dfgdfd
